@@ -10,16 +10,6 @@ export default function ListCountries() {
     { name: "AS", cities: ["Jeda", "Mecque", "Riyad"] },
     { name: "UAE", cities: ["Dubai", "Abou Dabi", "Ajman"] },
     { name: "Canada", cities: ["Quebec", "Toronto", "Vancouver"] },
-    { name: "Palestine", cities: ["Gaza", "Rafah", "Beit lahia"] },
-    { name: "Mauritania", cities: ["Nouakchott", "Atar", "Néma"] },
-    { name: "AS", cities: ["Jeda", "Mecque", "Riyad"] },
-    { name: "UAE", cities: ["Dubai", "Abou Dabi", "Ajman"] },
-    { name: "Canada", cities: ["Quebec", "Toronto", "Vancouver"] },
-    { name: "Palestine", cities: ["Gaza", "Rafah", "Beit lahia"] },
-    { name: "Mauritania", cities: ["Nouakchott", "Atar", "Néma"] },
-    { name: "AS", cities: ["Jeda", "Mecque", "Riyad"] },
-    { name: "UAE", cities: ["Dubai", "Abou Dabi", "Ajman"] },
-    { name: "Canada", cities: ["Quebec", "Toronto", "Vancouver"] },
   ];
   // Initial Country selected
   let initCountrySelected = {
@@ -64,8 +54,8 @@ export default function ListCountries() {
     }
   };
 
-  // The function that handle navigating Up
-  const navigate = (direction: string, isCity?: boolean) => {
+  // The function that handle navigating Up & Down for Country and City
+  function navigate(direction: string, isCity?: boolean) {
     const currentIndex = isCity ? selectedCity.index : selectedCountry.index;
     const totalItems = isCity
       ? countries[selectedCountry.index]?.cities.length
@@ -102,7 +92,7 @@ export default function ListCountries() {
       });
       setSelectedCity(initCitySelected);
     }
-  };
+  }
   // For debugging
   useEffect(() => {
     console.log("countries" + JSON.stringify(countries));
@@ -152,6 +142,7 @@ export default function ListCountries() {
           />
         ))}
       </ul>
+      {/*Cities fghj*/}
       {selectedCountry.index !== -1 && (
         <>
           <h4>List of cities for {selectedCountry.country}</h4>

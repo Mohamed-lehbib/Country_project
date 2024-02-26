@@ -137,7 +137,10 @@ export default function ListCountries() {
             index={index}
             country={country}
             isSelected={selectedCountry.index === index}
-            onClick={() => setSelectedCountry({ country: country.name, index })}
+            onClick={() => {
+              setSelectedCountry({ country: country.name, index });
+              setSelectedCity(initCitySelected);
+            }}
             onDelete={() => deleteItem(index, true)}
           />
         ))}
